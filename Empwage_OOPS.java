@@ -13,6 +13,15 @@ public class Empwage_OOPS {
         uc1.checkAttendance();
 
         System.out.println();
+
+        EmpDailyWageUC2 uc2 = new EmpDailyWageUC2();
+        double dailyWageFT = uc2.getEmpDailyWage(8);
+        System.out.println("FULL TIME emplyoee daily wage is " + dailyWageFT + " Rs");
+
+        double dailyWagePT = uc2.getEmpDailyWage(4);
+        System.out.println("PART TIME emplyoee daily wage is " + dailyWagePT + " Rs");
+
+        System.out.println(); // for empty space
     }
 
     public static class Attendance extends Empwage_OOPS {
@@ -25,6 +34,13 @@ public class Empwage_OOPS {
             } else {
                 System.out.println("Employee is Absent ");
             }
+        }
+    }
+
+    //Calculate daily wage
+    public static class EmpDailyWageUC2 extends Empwage_OOPS {
+        public double getEmpDailyWage(int FullDayHR) {
+            return perHourWage * FullDayHR;
         }
     }
 }
