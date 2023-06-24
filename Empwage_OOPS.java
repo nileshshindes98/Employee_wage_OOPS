@@ -23,6 +23,17 @@ public class Empwage_OOPS {
         System.out.println("PART TIME emplyoee daily wage is " + dailyWagePT + " Rs");
 
         System.out.println(); // for empty space
+
+        //calculate month wage
+
+        EmpMonthlyWage uc5 = new EmpMonthlyWage();
+        double monthWageFT = uc5.getEmpMonthWage(dailyWageFT, 20);
+        System.out.println("FULL TIME emplyoee Monthly wage is " + monthWageFT + " Rs");
+
+        double monthWagePT = uc5.getEmpMonthWage(dailyWagePT, 20);
+        System.out.println("PART TIME emplyoee Monthly wage is " + monthWagePT + " Rs");
+
+        System.out.println(); // for empty space
     }
 
     public static class Attendance extends Empwage_OOPS {
@@ -31,12 +42,12 @@ public class Empwage_OOPS {
         public void checkAttendance() {
             double checkEmpAtt = (int) (Math.floor(Math.random() * 10) % 4);
             switch ((int) checkEmpAtt) {
-                case PART_TIME :
+                case PART_TIME:
                     empHrs = 4;
-                    break ;
-                case FULL_TIME :
+                    break;
+                case FULL_TIME:
                     empHrs = 8;
-                default :
+                default:
                     empHrs = 0;
             }
         }
@@ -46,6 +57,12 @@ public class Empwage_OOPS {
     public static class EmpDailyWageUC2 extends Empwage_OOPS {
         public double getEmpDailyWage(int FullDayHR) {
             return perHourWage * FullDayHR;
+        }
+    }
+//calculate monthly wage
+    public static class EmpMonthlyWage {
+        public double getEmpMonthWage(double perDayWage, int workingDay) {
+            return perDayWage * workingDay;
         }
     }
 }
